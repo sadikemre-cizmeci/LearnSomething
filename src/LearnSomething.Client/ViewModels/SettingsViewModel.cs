@@ -449,6 +449,15 @@ public partial class SettingsViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    private async Task Refresh()
+    {
+        if (OpenList is not null)
+        {
+            await ReloadWordsAsync(OpenList.Id);
+        }
+    }
+
+    [RelayCommand]
     private void CancelEdit() => ClearWordForm();
 
     private void ClearWordForm()

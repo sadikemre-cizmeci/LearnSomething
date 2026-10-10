@@ -85,7 +85,11 @@ public partial class CardViewModel : ViewModelBase
             IsRevealed = false;
             HasCurrentWord = false;
 
-            var completion = _hasActiveList ? await _queueService.CheckCompletionAsync() : new CompletionStatus(false, null);
+            var completion = 
+            _hasActiveList ? 
+                await _queueService.CheckCompletionAsync() :
+                new CompletionStatus(false, null);
+
             IsAllFinished = completion.AllFinished;
             AllFinishedMessage = completion.Message ?? string.Empty;
             IsQuotaReached = _hasActiveList && !completion.AllFinished;

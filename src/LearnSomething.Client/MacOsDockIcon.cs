@@ -38,6 +38,12 @@ public static class MacOsDockIcon
                 return;
             }
 
+            // objc_getClass only finds classes from frameworks already loaded
+            // into the process; don't rely on Avalonia's native library having
+            // pulled AppKit in first.
+            NativeLibrary.TryLoad("/System/Library/Frameworks/Foundation.framework/Foundation", out _);
+            NativeLibrary.TryLoad("/System/Library/Frameworks/AppKit.framework/AppKit", out _);
+
             var nsStringClass = objc_getClass("NSString");
             var nsImageClass = objc_getClass("NSImage");
             var nsApplicationClass = objc_getClass("NSApplication");

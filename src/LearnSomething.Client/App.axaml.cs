@@ -23,6 +23,13 @@ public partial class App : Application
             // does not end the app — only closing both does.
             desktop.ShutdownMode = ShutdownMode.OnLastWindowClose;
 
+            // Unbundled (`dotnet run`) macOS processes get a blank Dock icon
+            // unless AppKit is told directly; Window.Icon doesn't reach the Dock.
+            if (OperatingSystem.IsMacOS())
+            {
+                MacOsDockIcon.SetFromFile(Path.Combine(AppContext.BaseDirectory, "Assets", "learnsomething-icon.png"));
+            }
+
             var services = AppStartup.InitializeAsync().GetAwaiter().GetResult();
             var cardHost = new CardWindowHost(services);
 

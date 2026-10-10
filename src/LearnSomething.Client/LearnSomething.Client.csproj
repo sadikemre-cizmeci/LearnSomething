@@ -5,10 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\learnsomething-icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
+    <Content Include="Assets\learnsomething-icon.png" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="..\..\samples\words-sample.csv" Link="SampleData\words-sample.csv" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 

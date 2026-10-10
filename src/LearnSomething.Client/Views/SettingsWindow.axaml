@@ -188,12 +188,16 @@
                                         </StackPanel>
                                     </Border>
 
-                                    <ComboBox SelectedIndex="{Binding WordFilterIndex}" Width="200" HorizontalAlignment="Left">
-                                        <ComboBoxItem Content="{Binding Path=FilterAll, Source={x:Static loc:Strings.Instance}}" />
-                                        <ComboBoxItem Content="{Binding Path=FilterNew, Source={x:Static loc:Strings.Instance}}" />
-                                        <ComboBoxItem Content="{Binding Path=FilterToRepeat, Source={x:Static loc:Strings.Instance}}" />
-                                        <ComboBoxItem Content="{Binding Path=FilterLearned, Source={x:Static loc:Strings.Instance}}" />
-                                    </ComboBox>
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <ComboBox SelectedIndex="{Binding WordFilterIndex}" Width="200" VerticalAlignment="Center">
+                                            <ComboBoxItem Content="{Binding Path=FilterAll, Source={x:Static loc:Strings.Instance}}" />
+                                            <ComboBoxItem Content="{Binding Path=FilterNew, Source={x:Static loc:Strings.Instance}}" />
+                                            <ComboBoxItem Content="{Binding Path=FilterToRepeat, Source={x:Static loc:Strings.Instance}}" />
+                                            <ComboBoxItem Content="{Binding Path=FilterLearned, Source={x:Static loc:Strings.Instance}}" />
+                                        </ComboBox>
+                                        <Button Content="{Binding Path=RefreshButton, Source={x:Static loc:Strings.Instance}}" Classes="secondary"
+                                                Command="{Binding RefreshCommand}" VerticalAlignment="Center" />
+                                    </StackPanel>
 
                                     <!-- Grouped by default ("Tüm kelimeler"); the filter above can
                                          narrow this down to just one section at a time. -->

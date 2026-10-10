@@ -119,6 +119,7 @@ public sealed class Strings : INotifyPropertyChanged
         "CSV format: first column is the word, second is the meaning, third is an optional example sentence.");
     public string CsvHasHeaderRowLabel => T("İlk satır başlık (atlanır)", "First row is a header (skipped)");
     public string AddWordButton => T("+ Kelime ekle", "+ Add word");
+    public string RefreshButton => T("Yenile", "Refresh");
     public string FilterAll => T("Tüm kelimeler", "All words");
     public string FilterNew => T("Yeni", "New");
     public string FilterToRepeat => T("Tekrar edilecek", "To repeat");
